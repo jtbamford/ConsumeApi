@@ -5,7 +5,7 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.qa.BabyApi.domain.POJOName;
+import com.qa.BabyApi.persistence.domain.POJOName;
 import com.qa.ConsumeApi.service.POJONameService;
 
 @CrossOrigin
@@ -15,7 +15,7 @@ public class Reciever {
 	@Autowired
 	private POJONameService service;
 	
-	@JmsListener(destination = "accountQueue", containerFactory = "myFactory")
+	@JmsListener(destination = "nameQueue", containerFactory = "myFactory")
 	public POJOName receiveMessage(POJOName nameToAdd) {
 		return service.addToDb(nameToAdd);
 	}

@@ -1,6 +1,8 @@
-package com.qa.BabyApi.domain;
+package com.qa.BabyApi.persistence.domain;
 
-public class POJOName {
+import java.io.Serializable;
+
+public class POJOName implements Serializable {
 	
 	private Long id;
 	private String name;
