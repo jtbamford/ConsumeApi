@@ -13,9 +13,6 @@ import com.qa.ConsumeApi.service.POJONameService;
 public class Reciever {
 	
 	@Autowired
-	private POJOName name;
-	
-	@Autowired
 	private POJONameService service;
 	
 	@JmsListener(destination = "accountQueue", containerFactory = "myFactory")
