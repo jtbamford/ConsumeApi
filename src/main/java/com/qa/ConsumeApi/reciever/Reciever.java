@@ -19,5 +19,15 @@ public class Reciever {
 	public POJOName receiveMessage(POJOName nameToAdd) {
 		return service.addToDb(nameToAdd);
 	}
+	
+	@JmsListener(destination = "deleteQueue", containerFactory = "myFactory")
+	public String receiveDeleteMessage(POJOName nameToDelete) {
+		return service.deleteFromDb(nameToDelete);
+	}
+	
+	@JmsListener(destination = "updateQueue", containerFactory = "myFactory")
+	public String receiveUpdateMessage(POJOName nameToUpdate) {
+		return service.updateDb(nameToUpdate);
+	}
 
 }
